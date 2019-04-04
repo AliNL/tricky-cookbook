@@ -1,0 +1,46 @@
+<style>
+    #visibleText, #hiddenText {
+        font-size: 18px;
+        line-height: 32px;
+        font-family: sans-serif;
+        word-break: break-word;
+    }
+
+    #visibleText {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding-right: 30px;
+        resize: none
+    }
+
+    #hiddenText {
+        visibility: hidden;
+        padding: 3px 30px 40px 3px;
+    }
+
+    #textCounter {
+        position: absolute;
+        right: 8px;
+        bottom: 5px;
+        color: red
+    }
+</style>
+
+<div style="width: 500px; margin: 100px auto; border: 1px solid gray; padding: 20px; font-family: sans-serif;">
+    <div style="position: relative; min-height: 75px">
+        <textarea id="visibleText" onkeyup="inputChange()"></textarea>
+        <p id="hiddenText"></p>
+        <span id="textCounter">0</span>
+    </div>
+    <div>
+        Other Contents
+    </div>
+</div>
+<script>
+  function inputChange() {
+    const text = document.getElementById('visibleText').value;
+    document.getElementById('hiddenText').innerText = text;
+    document.getElementById('textCounter').innerText = text.length;
+  }
+</script>
